@@ -5,7 +5,7 @@ import { useUnit } from 'effector-react'
 
 const $isTMA = createStore(false);
 const initFx = createEffect(async () => {
-  return isTMA('complete')
+  return isTMA()
 });
 
 sample({clock: initFx.doneData, target: $isTMA})
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <p style={{color: 'red'}}>isTma: {String(isTMA)}</p>
+      <p style={{color: 'green'}}>isTma: {String(isTMA)}</p>
     </>
   )
 }
