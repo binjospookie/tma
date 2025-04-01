@@ -17,6 +17,8 @@ function App() {
   return (
     <>
       <p style={{color: 'green'}}>isTma: {String(isTMA)}</p>
+      {/** @ts-expect-error 123 */}
+      <code>{JSON.stringify(window?.Telegram || {}, undefined,2)}</code>
     </>
   )
 }
