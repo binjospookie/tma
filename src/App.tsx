@@ -5,6 +5,7 @@ import { useUnit } from 'effector-react'
 
 const $isTMA = createStore(false);
 const initFx = createEffect(async () => {
+  alert(isTMA())
   return isTMA()
 });
 
