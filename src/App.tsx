@@ -5,11 +5,11 @@ import { useUnit } from 'effector-react'
 
 const $isTMA = createStore(false);
 const initFx = createEffect(async () => {
-  alert(isTMA())
   return isTMA()
 });
 
 sample({clock: initFx.doneData, target: $isTMA})
+initFx()
 
 function App() {
   const isTMA = useUnit($isTMA)
