@@ -12,7 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@telegram-apps/bridge": "^2.5.0",
+    "@telegram-apps/bridge": "2",
     "effector": "^23.3.0",
     "effector-react": "^23.3.0",
     "react": "^19.0.0",

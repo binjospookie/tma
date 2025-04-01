@@ -1,14 +1,18 @@
 import './App.css'
-import {isTMA} from '@telegram-apps/bridge'
-import { createEffect, createStore, sample } from 'effector'
+import { createEffect, createStore } from 'effector'
 import { useUnit } from 'effector-react'
+
 
 const $isTMA = createStore(false);
 const initFx = createEffect(async () => {
-  return isTMA()
+
+  await import('./sdk')
+
+  // @ts-expect-error 123
+ return window?.Telegram?.WebApp && window?.Telegram?.WebApp.platform !== 'unknown'
+
 });
 
-sample({clock: initFx.doneData, target: $isTMA})
 initFx()
 
 function App() {
@@ -16,9 +20,9 @@ function App() {
 
   return (
     <>
-      <p style={{color: 'green'}}>isTma: {String(isTMA)}</p>
+      <p style={{color: 'yellow'}}>isTma: {String(isTMA)}</p>
       {/** @ts-expect-error 123 */}
-      <code>{JSON.stringify(window?.Telegram || {}, undefined,2)}</code>
+      <code>{JSON.stringify(window?.Telegram.WebApp || {}, undefined,2)}</code>
     </>
   )
 }
